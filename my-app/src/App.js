@@ -1,28 +1,18 @@
 import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
+// import TextField from '@material-ui/core/TextField';
+// import Button from '@material-ui/core/Button';
+// import IconButton from '@material-ui/core/IconButton';
+// import RemoveIcon from '@material-ui/icons/Remove';
+// import AddIcon from '@material-ui/icons/Add';
+// import Icon from '@material-ui/core/Icon';
+import './styles/styles.scss';
 
-import { makeStyles } from '@material-ui/core/styles';
+import QuestionWrapper from './components/QuestionWrapper.jsx';
+import OneLine from './components/OneLine.jsx';
 
-const useStyles = makeStyles({
-    root: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      border: 10,
-      borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      color: 'white',
-      height: 48,
-      padding: '0 30px',
-    },
-  });
 
 function App() {
-  const classes = useStyles()
   const [skillField, setSkillField] = useState([
     { skills: '' },
   ]);
@@ -39,91 +29,91 @@ function App() {
     { subname:'', title: '' , content: ''},
   ]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Skills to be worked upon:", skillField);
-    console.log("Areas of strength", strengthField);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Skills to be worked upon:", skillField);
+  //   console.log("Areas of strength", strengthField);
+  // };
 
-  const handleChangeSkill = (index, event) => {
-    const values = [...skillField];
-    values[index][event.target.name] = event.target.value;
-    setSkillField(values);
-  }
-  const handleChangeStrength = (index, event) => {
-    const values = [...strengthField];
-    values[index][event.target.name] = event.target.value;
-    setStrengthField(values);
-  }
-  const handleChangeAttention = (index, event) => {
-    const values = [...attentionField];
-    values[index][event.target.name] = event.target.value;
-    setAttentionField(values);
-  }
-  const handleChangeAccom = (index, event) => {
-    const values = [...accomField];
-    values[index][event.target.name] = event.target.value;
-    setAccomField(values);
-  }
-  const handleChangeSubject= (index, event) => {
-    const values = [...subjectField];
-    values[index][event.target.name] = event.target.value;
-    setSubjectField(values);
-  }
+  // const handleChangeSkill = (index, event) => {
+  //   const values = [...skillField];
+  //   values[index][event.target.name] = event.target.value;
+  //   setSkillField(values);
+  // }
+  // const handleChangeStrength = (index, event) => {
+  //   const values = [...strengthField];
+  //   values[index][event.target.name] = event.target.value;
+  //   setStrengthField(values);
+  // }
+  // const handleChangeAttention = (index, event) => {
+  //   const values = [...attentionField];
+  //   values[index][event.target.name] = event.target.value;
+  //   setAttentionField(values);
+  // }
+  // const handleChangeAccom = (index, event) => {
+  //   const values = [...accomField];
+  //   values[index][event.target.name] = event.target.value;
+  //   setAccomField(values);
+  // }
+  // const handleChangeSubject= (index, event) => {
+  //   const values = [...subjectField];
+  //   values[index][event.target.name] = event.target.value;
+  //   setSubjectField(values);
+  // }
 
-  const handleAddSkills = () => {
-    setSkillField([...skillField, { skills: ''}])
-  }
-  const handleAddStrengths = () => {
-    setStrengthField([...strengthField, { strengths: ''}])
-  }
-  const handleAddAttentions = () => {
-    setAttentionField([...attentionField, { attentions: ''}])
-  }
-  const handleAddAccom = () => {
-    setAccomField([...accomField, { title: '', content: ''}])
-  }
-  const handleAddSubject = () => {
-    setSubjectField([...subjectField, { subname:'', title: '', content: ''}])
-  }
-  const handleAddSubjectTopic = () => {
-    setSubjectField([...subjectField, { title: '', content: ''}])
-  }
+  // const handleAddSkills = () => {
+  //   setSkillField([...skillField, { skills: ''}])
+  // }
+  // const handleAddStrengths = () => {
+  //   setStrengthField([...strengthField, { strengths: ''}])
+  // }
+  // const handleAddAttentions = () => {
+  //   setAttentionField([...attentionField, { attentions: ''}])
+  // }
+  // const handleAddAccom = () => {
+  //   setAccomField([...accomField, { title: '', content: ''}])
+  // }
+  // const handleAddSubject = () => {
+  //   setSubjectField([...subjectField, { subname:'', title: '', content: ''}])
+  // }
+  // const handleAddSubjectTopic = () => {
+  //   setSubjectField([...subjectField, { title: '', content: ''}])
+  // }
 
-  function handleRemoveSkills(index) {
-        const values = [...skillField];
-        values.splice(index, 1);
-        setSkillField(values);
-    }
-  const handleRemoveStrengths = (index) => {
-    const values  = [...strengthField];
-    values.splice(index, 1);
-    setStrengthField(values);
-  }
-  const handleRemoveAttentions = (index) => {
-    const values  = [...attentionField];
-    values.splice(index, 1);
-    setAttentionField(values);
-  }
-  const handleRemoveAccom = (index) => {
-    const values  = [...accomField];
-    values.splice(index, 1);
-    setAccomField(values);
-  }
-  const handleRemoveSubject = (index) => {
-    const values  = [...subjectField];
-    values.splice(index, 1);
-    setSubjectField(values);
-  }
-  const handleRemoveSubjectTopic = (index) => {
-    const values  = [...subjectField.title, ...subjectField.content];
-    values.splice(index, 1);
-    setSubjectField(values);
-  }
+  // function handleRemoveSkills(index) {
+  //       const values = [...skillField];
+  //       values.splice(index, 1);
+  //       setSkillField(values);
+  //   }
+  // const handleRemoveStrengths = (index) => {
+  //   const values  = [...strengthField];
+  //   values.splice(index, 1);
+  //   setStrengthField(values);
+  // }
+  // const handleRemoveAttentions = (index) => {
+  //   const values  = [...attentionField];
+  //   values.splice(index, 1);
+  //   setAttentionField(values);
+  // }
+  // const handleRemoveAccom = (index) => {
+  //   const values  = [...accomField];
+  //   values.splice(index, 1);
+  //   setAccomField(values);
+  // }
+  // const handleRemoveSubject = (index) => {
+  //   const values  = [...subjectField];
+  //   values.splice(index, 1);
+  //   setSubjectField(values);
+  // }
+  // const handleRemoveSubjectTopic = (index) => {
+  //   const values  = [...subjectField.title, ...subjectField.content];
+  //   values.splice(index, 1);
+  //   setSubjectField(values);
+  // }
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
       <p>Skills to work upon</p>
         { skillField.map((skillField, index) => (
           <div key={index}>
@@ -267,7 +257,50 @@ function App() {
           endIcon={<Icon>send</Icon>}
           onClick={handleSubmit}
         >Send</Button>
-      </form>
+      </form> */}
+
+      <QuestionWrapper>
+        {
+          skillField.map((skill, idx) => (
+            <OneLine 
+              key={idx} 
+              index={idx} 
+              field={skillField}
+              setField={setSkillField}
+              name="skills"
+              placeholder="Add new skill"
+            />
+          ))
+        }
+      </QuestionWrapper>
+      <QuestionWrapper>
+        {
+          strengthField.map((object, idx) => (
+            <OneLine 
+              key={idx} 
+              index={idx} 
+              field={strengthField}
+              setField={setStrengthField}
+              name="strengths"
+              placeholder="Add new area of strength"
+            />
+          ))
+        }
+      </QuestionWrapper>
+      <QuestionWrapper>
+        {
+          attentionField.map((object, idx) => (
+            <OneLine 
+              key={idx} 
+              index={idx} 
+              field={attentionField}
+              setField={setAttentionField}
+              name="attentions"
+              placeholder="Add new area of attention"
+            />
+          ))
+        }
+      </QuestionWrapper>
     </Container>
   );
 }
